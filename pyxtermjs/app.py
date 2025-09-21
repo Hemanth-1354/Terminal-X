@@ -145,8 +145,8 @@ def main():
         level=logging.DEBUG if args.debug else logging.INFO,
     )
     logging.info(f"serving on http://{args.host}:{args.port}")
-    socketio.run(app, debug=args.debug, port=args.port, host=args.host)
-
+    socketio.run(app, debug=args.debug, port=args.port,
+                 host=args.host, allow_unsafe_werkzeug=True)
 
 if __name__ == "__main__":
     main()
